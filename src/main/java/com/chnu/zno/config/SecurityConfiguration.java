@@ -1,5 +1,6 @@
 package com.chnu.zno.config;
 
+import com.chnu.zno.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,11 +17,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @ComponentScan(basePackages = "com.chnu.zno")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private static final String[] WHITE_LIST_URLS = {"/user/login", "/user/register",
-            "/user/register/confirm", "/ping"};
+    private static final String[] WHITE_LIST_URLS = {"/user/login", "/user/register", "/ping"};
 
-//    @Autowired
-//    private UserService userService;
+    @Autowired
+    private UserServiceImpl userService;
 
     @Bean(name = "authenticationManager")
     @Override
@@ -53,6 +53,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userService);
+        auth.userDetailsService(userService);
     }
 }

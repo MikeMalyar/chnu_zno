@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @EnableAutoConfiguration
 @EnableJpaRepositories("com.chnu.zno.*")
 @ComponentScan("com.chnu.zno.*")
-@EntityScan("com.lifehack.*")
+@EntityScan("com.chnu.zno.*")
 public class ApplicationDataSource {
 
     @Autowired
