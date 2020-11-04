@@ -50,10 +50,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             Authentication authentication = authenticationManager.authenticate(authenticationTokenRequest);
             SecurityContext securityContext = SecurityContextHolder.getContext();
             securityContext.setAuthentication(authentication);
-
-            User user = (User) authentication.getPrincipal();
-            userRepository.save(user);
-
             return true;
         } catch (BadCredentialsException | InternalAuthenticationServiceException ex) {
             return false;

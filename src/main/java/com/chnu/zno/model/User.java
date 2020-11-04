@@ -10,22 +10,18 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Entity
-@Table(name = "user")
+@Table(name = "\"user\"")
 public class User implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "User_ID")
-    private Integer id;
+    private Integer userId;
 
-    @Column(name = "Login")
     private String login;
 
-    @Column(name = "Password")
     private String password;
 
-    @Column(name = "Role")
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Override
@@ -58,12 +54,12 @@ public class User implements Serializable, UserDetails {
         return true;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public User setId(int Integer) {
-        this.id = id;
+    public User setUserId(Integer userId) {
+        this.userId = userId;
         return this;
     }
 
