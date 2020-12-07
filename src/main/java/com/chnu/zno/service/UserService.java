@@ -9,4 +9,6 @@ public interface UserService {
     boolean login(LoginDto loginDto);
 
     User register(RegistrationDto registrationDto);
+
+    boolean checkLogin(String login);
 }

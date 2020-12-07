@@ -63,4 +63,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .setPassword(passwordEncoder.encode(registrationDto.getPassword()))
                 .setRole(registrationDto.getUserRole()));
     }
+
+    @Override
+    public boolean checkLogin(String login) {
+        return loadUserByUsername(login) == null;
+    }
 }
