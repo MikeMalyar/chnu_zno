@@ -40,7 +40,7 @@ public class IntroductionController {
     @ApiOperation(value = "Endpoint for getting all Introductions")
     @GetMapping("/")
     public GenericResponse getIntroductions() {
-        return GenericResponse.of(specialtyRepository.findAll());
+        return GenericResponse.of(introductionRepository.findAll());
     }
 
     @ApiOperation(value = "Endpoint for getting Introduction by ID")
