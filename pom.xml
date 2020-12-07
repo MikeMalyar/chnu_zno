@@ -140,6 +140,25 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <groupId>com.heroku.sdk</groupId>
+                <version>3.0.2</version>
+                <configuration>
+                    <appname>lifehack-server</appname>
+                    <includetarget>false</includetarget>
+                    <includes>
+                        <include>${project.build.directory}/${project.build.finalName}.jar</include>
+                    </includes>
+                    <jdkversion>1.8</jdkversion>
+                    <processtypes>
+                        <web>java $JAVA_OPTS -jar
+                            ${project.build.directory}/${project.build.finalName}.jar
+                        </web>
+                    </processtypes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
