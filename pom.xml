@@ -146,7 +146,7 @@
                 <groupId>com.heroku.sdk</groupId>
                 <version>3.0.2</version>
                 <configuration>
-                    <appname>lifehack-server</appname>
+                    <appname>zno</appname>
                     <includetarget>false</includetarget>
                     <includes>
                         <include>${project.build.directory}/${project.build.finalName}.jar</include>
